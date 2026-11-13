@@ -20,7 +20,7 @@ spec:
 
   # set the webhook
   webhook:
-    enable: true
+    enabled: true
     authentication:
       enabled: true
       secretRef:
