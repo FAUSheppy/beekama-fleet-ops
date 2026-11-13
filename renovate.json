@@ -1,6 +1,32 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended"
+    ],
+    "kubernetes": {
+        "managerFilePatterns": [
+            "/\\.ya?ml$/"
+        ]
+    },
+    "packageRules": [
+        {
+            "description": "wallah krieeeeseeeeee",
+            "matchManagers": ["kubernetes"],
+            "matchDatasources": ["docker"],
+            "groupName": "container images",
+            "automerge": false
+        },
+        {
+            "description": "<description>",
+            "matchDatasources": ["docker"],
+            "matchPackageNames": [
+                "/^registry\\.services\\.atlantishq\\.de\\/beekama\\//"
+            ],
+            "versioning": "semver",
+            "minimumReleaseAge": null,
+            "automerge": true,
+            "platformAutomerge": false,
+            "ignoreTests": true
+        }
+    ]
 }
