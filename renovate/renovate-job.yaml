@@ -14,9 +14,19 @@ spec:
 
   secretRef: renovate-github-beekama
 
+  # required fields
   schedule: "0 2 * * *"
-
   parallelism: 3
+
+  # set the webhook
+  webhook:
+    enable: true
+    authentication:
+      enabled: true
+      secretRef:
+        name: renovate-github-beekama-webhook
+        key: RENOVATE_WEBHOOK_TOKEN
+
 
   resources:
     requests:
